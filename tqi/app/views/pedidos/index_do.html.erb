@@ -21,7 +21,7 @@
       <tr>
         <td><%= pedido.comprador %></td>
         <td><%= pedido.descricao %></td>
-        <td><%= pedido.preco_unitario %></td>
+        <td><%= number_to_currency(pedido.preco_unitario, unit:'R$ ', separator:',') %></td>
         <td><%= pedido.quantidade %></td>
         <td><%= pedido.endereco %></td>
         <td><%= pedido.fornecedor %></td>
@@ -30,4 +30,4 @@
     <% end %>
   </tbody>
 </table>
-<p>Valor total dos pedidos: <%= @valor_total_pedidos %>
+<p>Valor total dos pedidos: <%= number_to_currency(@valor_total_pedidos, unit:'R$ ', separator:',') %>
