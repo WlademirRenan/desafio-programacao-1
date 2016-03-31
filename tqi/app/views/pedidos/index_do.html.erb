@@ -1,0 +1,33 @@
+<h1>Pedidos Importados: <%= @numero_pedidos_importados %></h1>
+<style>
+  table, td{border: 1px solid #cccccc;}
+  td{width: 200px;}
+</style>
+<table>
+  <thead>
+    <tr>
+      <td>Comprador</td>
+      <td>Descrição</td>
+      <td>Preco Unitário</td>
+      <td>Quantidade</td>
+      <td>Endereço</td>
+      <td>Fornecedor</td>
+      <td>Data Cadastro</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pedidos.each do |pedido| %>
+      <tr>
+        <td><%= pedido.comprador %></td>
+        <td><%= pedido.descricao %></td>
+        <td><%= pedido.preco_unitario %></td>
+        <td><%= pedido.quantidade %></td>
+        <td><%= pedido.endereco %></td>
+        <td><%= pedido.fornecedor %></td>
+        <td><%= pedido.created_at.strftime("%d/%m/%Y %H:%M:%S") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p>Valor total dos pedidos: <%= @valor_total_pedidos %>
