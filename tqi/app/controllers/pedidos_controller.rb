@@ -8,7 +8,7 @@ class PedidosController < ApplicationController
     unless params[:pedido].nil?
       # Metodo de classe para gravar conteudo do formulário
       @numero_pedidos_importados = Pedido.inserir_pedidos(params[:pedido])
-      @pedidos = Pedido.order("created_at DESC").limit(@numero_pedidos_importados)
+      @pedidos = Pedido.order("created_at DESC").limit(@numero_pedidos_importados).reverse
       @valor_total_pedidos = @pedidos.inject(0){|total, pedido| total = total + pedido.valor_total}
     else
       @pedido = Pedido.new
